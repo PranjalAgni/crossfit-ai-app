@@ -23,8 +23,8 @@ export default function Page() {
         <Message type="bot" className="mb-4">
           <div className="p-4">
             <h1 className="text-xl font-semibold text-gray-800">
-              Ask me about available dates, pricing, or anything else you need
-              to know.
+              Ask me about crossfit gyms around globe and crossfit workout is
+              coming soon
             </h1>
             <p className="text-gray-600 mt-2">
               Here are some example questions you can ask:
@@ -38,13 +38,15 @@ export default function Page() {
                     {
                       id: Date.now(),
                       display: (
-                        <Message type="user">What gyms are nearby me</Message>
+                        <Message type="user">
+                          Give me 5 Crossfit gyms in USA
+                        </Message>
                       ),
                     },
                   ]);
 
                   const responseMessage = await submitUserMessage(
-                    "What gyms are nearby me?"
+                    "Give me 5 Crossfit gyms in USA"
                   );
                   setMessages((currentMessages) => [
                     ...currentMessages,
@@ -52,27 +54,72 @@ export default function Page() {
                   ]);
                 }}
               >
-                — What gyms are nearby me?
+                — List of 5 Crossfit gyms in USA
+              </button>
+              <button
+                className="text-blue-600 hover:text-blue-800 text-left"
+                onClick={async () => {
+                  setMessages((currentMessages) => [
+                    ...currentMessages,
+                    {
+                      id: Date.now(),
+                      display: (
+                        <Message type="user">
+                          Give me 2 Crossfit gyms in India
+                        </Message>
+                      ),
+                    },
+                  ]);
+
+                  const responseMessage = await submitUserMessage(
+                    "Give me 2 Crossfit gyms in India"
+                  );
+                  setMessages((currentMessages) => [
+                    ...currentMessages,
+                    responseMessage,
+                  ]);
+                }}
+              >
+                — List of 2 Crossfit gyms in India
+              </button>
+              <button
+                className="text-blue-600 hover:text-blue-800 text-left"
+                onClick={async () => {
+                  setMessages((currentMessages) => [
+                    ...currentMessages,
+                    {
+                      id: Date.now(),
+                      display: (
+                        <Message type="user">
+                          Give me 7 Crossfit gyms in Europe
+                        </Message>
+                      ),
+                    },
+                  ]);
+
+                  const responseMessage = await submitUserMessage(
+                    "Give me 7 Crossfit gyms in Europe"
+                  );
+                  setMessages((currentMessages) => [
+                    ...currentMessages,
+                    responseMessage,
+                  ]);
+                }}
+              >
+                — List of 7 Crossfit gyms in Europe
               </button>
             </div>
           </div>
         </Message>
-      </div>
 
-      <div className="flex flex-1 justify-center m-6 mb-16">
-        <div className="flex flex-col items-center">
-          <EdgeDB_Vercel />
-          <p className="text-zinc-400 text-xs text-center mt-3 max-w-md">
-            This demo app is backed by EdgeDB, Next.js, and
-            Vercel&nbsp;AI&nbsp;SDK. Runs on Vercel and EdgeDB&nbsp;Cloud. Read{" "}
-            <a
-              className="underline"
-              href="https://www.edgedb.com/blog/generative-ui-with-vercel-ai-sdk-and-edgedb"
-            >
-              the blog post
-            </a>{" "}
-            for more details.
-          </p>
+        <div className="flex flex-1 justify-center m-6 mb-16">
+          <div className="flex flex-col items-center">
+            <EdgeDB_Vercel />
+            <p className="text-zinc-400 text-xs text-center mt-3 max-w-md">
+              An app for the love of crossfit and building. Backed by Crossfit
+              API and Vercel&nbsp;AI&nbsp;SDK.
+            </p>
+          </div>
         </div>
       </div>
 
