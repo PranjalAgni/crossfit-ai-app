@@ -9,12 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@azure/openai": "1.0.0-beta.11",
     "@edgedb/generate": "^0.4.1",
     "@heroicons/react": "^2.1.3",
     "ai": "^3.0.15",
     "edgedb": "^1.4.1",
     "next": "14.2.0-canary.46",
+    "openai": "^4.30.0",
     "react": "^18",
     "react-dom": "^18",
     "react-markdown": "^9.0.1",
@@ -28,6 +28,7 @@
     "eslint-config-next": "14.2.0-canary.46",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "^5"
   }
 }
