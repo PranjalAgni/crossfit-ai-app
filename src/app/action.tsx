@@ -1,13 +1,12 @@
 import { createClient } from "edgedb";
-import { OpenAIClient, AzureKeyCredential } from "@azure/openai";
 import { createAI, getMutableAIState, render } from "ai/rsc";
 import { Message } from "@/components/Message";
+import { OpenAI } from "openai";
 
 // Create an OpenAI API client
-const openai = new OpenAIClient(
-  process.env.OPENAI_AZURE_ENDPOINT!,
-  new AzureKeyCredential(process.env.OPENAI_API_AZURE_KEY!)
-);
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_AZURE_KEY,
+});
 
 // edgedb client
 const client = createClient();
@@ -26,7 +25,7 @@ async function submitUserMessage(userInput: string) {
   ]);
 
   const ui = render({
-    model: "gpt-4",
+    model: "gpt-3.5-turbo",
     provider: openai,
     messages: [
       {
