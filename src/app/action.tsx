@@ -2,6 +2,7 @@ import { createClient } from "edgedb";
 import { createAI, getMutableAIState, render } from "ai/rsc";
 import { Message } from "@/components/Message";
 import { OpenAI } from "openai";
+import e from "../../dbschema/edgeql-js";
 
 // Create an OpenAI API client
 const openai = new OpenAI({
@@ -10,6 +11,19 @@ const openai = new OpenAI({
 
 // edgedb client
 const client = createClient();
+
+async function getGyms(limit?: number) {
+  const gymsQuery = e.select(e.Gyms, (gym) => ({
+    ...e.Gyms["*"],
+    limit: limit,
+    order_by: {
+      expression: gym.name,
+    },
+  }));
+
+  const gyms = await gymsQuery.run(client);
+  return gyms;
+}
 
 async function submitUserMessage(userInput: string) {
   "use server";
